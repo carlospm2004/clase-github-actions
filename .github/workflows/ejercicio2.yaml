@@ -1,0 +1,21 @@
+name: Ej2 - Manejo de secretos
+
+on:
+  workflow_dispatch:
+
+jobs:
+  login:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simular login
+        env:
+          PASSWORD: ${{ secrets.CONTRASENA }}
+        run: |
+          echo "Intentando login con usuario: carlos"
+          echo "Contraseña usada: $PASSWORD"
+          if [ -n "$PASSWORD" ]; then
+            echo "Login correcto"
+          else
+            echo "No se ha encontrado la contraseña"
+            exit 1
+          fi
