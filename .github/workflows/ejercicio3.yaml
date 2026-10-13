@@ -1,0 +1,25 @@
+name: Ej3 - Matriz de estrategia
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+
+    steps:
+      - name: Descargar el código del repo
+        uses: actions/checkout@v4
+
+      - name: Instalar Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Test
+        run: |
+          python --version
+          python -c "assert 2 + 2 == 4; print('Test superado')"
