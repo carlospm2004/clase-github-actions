@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Leer variable en el job 1
-        run: echo "Curso desde job 1: $CURSO"
+        run: echo "Curso desde job 1 $CURSO"
 
   job_dos:
     runs-on: ubuntu-latest
     steps:
       - name: Leer variable en el job 2
-        run: echo "Curso desde job 2: $CURSO"
+        run: echo "Curso desde job 2 $CURSO"
